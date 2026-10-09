@@ -1,12 +1,28 @@
-import './App.css'
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Classes from "./components/Classes";
+import Instructors from "./components/Instructor";
+import Gallery from "./components/Gallery";
+import Reviews from "./components/Review";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
-function App() {
-
+export default function App() {
   return (
-     <h1 class="text-3xl font-bold underline text-blue-300 font-gloock">
-    Hello world!
-  </h1>
-  )
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Classes />
+        <Instructors />
+        <Gallery />
+        <Reviews />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
 }
 
-export default App

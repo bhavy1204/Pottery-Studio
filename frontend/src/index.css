@@ -1,12 +1,89 @@
 @import "tailwindcss";
+
 @theme {
+  /* Fonts */
   --font-gloock: "Gloock", serif;
   --font-dmsans: "DM Sans", sans-serif;
-  --font-cormorant: "Cormorant Garamond", serif;
+  --font-cormorant: "Cormorant Garamond", serif; /* hero heading only */
+
+  /* Your palette */
+  --color-cream: #f7f1e7;
+  --color-ink: #29221d;
+  --color-terracotta: #a9573f;
+  --color-clay: #c98f6b;
+  --color-olive: #74745a;
+
+  /* Supporting tones (derived from the palette, for depth) */
+  --color-sand: #ede2d0; /* alternate section background */
+  --color-line: #dccdb8; /* borders and dividers */
+  --color-ink-soft: #6a5c50; /* secondary text */
+  --color-terracotta-dark: #8e4630; /* button hover */
 }
-/* 
-Cream       #F7F1E7
-Dark Brown  #29221D
-Terracotta  #A9573F
-Clay        #C98F6B
-Olive       #74745A */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-dmsans);
+  -webkit-font-smoothing: antialiased;
+}
+
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 3px;
+}
+
+/* Hero: one orchestrated page-load moment */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.rise {
+  opacity: 0;
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+/* Instructors: image unveils like a kiln door opening, text follows */
+.unveil {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.8s ease 0.45s, transform 0.8s ease 0.45s;
+}
+.is-visible .unveil { clip-path: inset(0 0 0 0); }
+.is-visible .fade-in { opacity: 1; transform: none; }
+
+/* Reviews: sliding marquee */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 70s linear infinite;
+  width: max-content;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee {
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise, .fade-in { opacity: 1; transform: none; animation: none; transition: none; }
+  .unveil { clip-path: none; transition: none; }
+  .marquee-track { animation: none; }
+  .marquee { overflow-x: auto; }
+}
+
