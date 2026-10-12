@@ -61,18 +61,18 @@ export const classes = [
 
 export const instructors = [
   {
-    name: "Father's Name",
+    name: "Devi Lal Prajapat",
     role: "Master Potter and Founder",
-    image: images.father,
+    image: "https://res.cloudinary.com/g2xlab58/image/upload/v1791736007/7025fa5e-4b93-4919-b17c-a62c26b7452f.png",
     bio: [
       "Placeholder text. Write a few lines about the father's journey here: where he learned the craft, how the studio started and what he is known for.",
       "He has been working with clay for over four decades and has shaped hundreds of pieces for hotels and homes in Udaipur.",
     ],
   },
   {
-    name: "Son's Name",
+    name: "Lokesh Prajapat",
     role: "Potter and Lead Instructor",
-    image: images.son,
+    image: "https://res.cloudinary.com/g2xlab58/image/upload/v1791736054/6a8793b9-ea45-447d-b86d-6959cf350065-clean.png",
     bio: [
       "Placeholder text. Write a few lines about the son here: how he grew up in the studio and what he enjoys teaching.",
       "He leads most of the classes and brings a fresh, modern eye to the traditions he learned from his father.",
