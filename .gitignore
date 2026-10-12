@@ -25,3 +25,6 @@ dist-ssr
 
 uploads/
 *.env
+
+image-data.js
+converted/
