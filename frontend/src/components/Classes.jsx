@@ -36,13 +36,9 @@ export default function Classes() {
                   <h3 className="font-gloock text-xl">{c.name}</h3>
                 </div>
                 <p className="leading-relaxed text-ink-soft md:col-span-4">{c.text}</p>
-                <div className="flex items-center justify-between gap-4 md:col-span-4 md:justify-end md:gap-6">
-                  <p className="flex items-center gap-2 text-sm text-ink-soft">
-                    <Clock size={16} />
-                    {c.duration}, {c.level.toLowerCase()}
-                  </p>
+                <div className="flex items-center justify-between md:col-span-4 md:justify-end md:gap-6">
                   <a
-                    href={waLink(`Hello Mewar Pot Makers, I am interested in the ${c.name} class. Could you share the available slots?`)}
+                    href={waLink(`Hello Mewar Pot Makers, I am interested in the ${c.name} class. Could you share more info?`)}
                     target="_blank"
                     rel="noreferrer"
                     className="shrink-0 rounded-full border border-terracotta px-5 py-2 text-sm font-medium text-terracotta transition-colors hover:bg-terracotta hover:text-cream"

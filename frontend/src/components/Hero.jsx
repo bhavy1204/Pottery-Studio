@@ -3,7 +3,7 @@ import { site, heroImages, waLink, defaultMessage } from "../data/siteData";
 import SmartImage from "./SmartImage";
 
 const delay = (s) => ({ animationDelay: `${s}s` });
-const INTERVAL = 4000;
+const INTERVAL = 3000;
 
 function ArchSlider() {
   const [index, setIndex] = useState(0);
