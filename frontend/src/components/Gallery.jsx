@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { X, CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { gallery, galleryCategories } from "../data/siteData";
 import SmartImage from "./SmartImage";
@@ -9,7 +9,6 @@ export default function Gallery() {
   const [active, setActive] = useState("All");
   const [visible, setVisible] = useState(BATCH);
   const [index, setIndex] = useState(null); // lightbox position
-  const sentinel = useRef(null);
 
   const items = active === "All" ? gallery : gallery.filter((g) => g.category === active);
   const shown = items.slice(0, visible);
@@ -19,19 +18,6 @@ export default function Gallery() {
     setActive(c);
     setVisible(BATCH);
   };
-
-  // Auto-load the next batch shortly before the bottom of the grid comes into view
-  useEffect(() => {
-    if (!hasMore || !sentinel.current) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setVisible((v) => v + BATCH);
-      },
-      { rootMargin: "600px" }
-    );
-    io.observe(sentinel.current);
-    return () => io.disconnect();
-  }, [hasMore, visible]);
 
   const close = useCallback(() => setIndex(null), []);
   const step = useCallback(
@@ -96,14 +82,32 @@ export default function Gallery() {
           ))}
         </div>
 
-        {hasMore && (
-          <div ref={sentinel} className="mt-10 flex justify-center">
-            <button
-              onClick={() => setVisible((v) => v + BATCH)}
-              className="rounded-full border border-terracotta px-7 py-3 font-medium text-terracotta transition-colors hover:bg-terracotta hover:text-cream"
-            >
-              Show more
-            </button>
+        {items.length > BATCH && (
+          <div className="mt-10 flex flex-col items-center gap-4">
+            <p className="text-sm text-ink-soft">
+              Showing {shown.length} of {items.length}
+            </p>
+            <div className="flex gap-3">
+              {hasMore && (
+                <button
+                  onClick={() => setVisible((v) => v + BATCH)}
+                  className="rounded-full border border-terracotta px-7 py-3 font-medium text-terracotta transition-colors hover:bg-terracotta hover:text-cream"
+                >
+                  Show more
+                </button>
+              )}
+              {visible > BATCH && (
+                <button
+                  onClick={() => {
+                    setVisible(BATCH);
+                    document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="rounded-full border border-line px-7 py-3 font-medium text-ink-soft transition-colors hover:border-terracotta hover:text-terracotta"
+                >
+                  Show less
+                </button>
+              )}
+            </div>
           </div>
         )}
       </div>

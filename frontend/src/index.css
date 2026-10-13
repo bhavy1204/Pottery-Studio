@@ -32,7 +32,7 @@ body {
 }
 
 section[id] {
-  scroll-margin-top: 4.5rem;
+  scroll-margin-top: 5.5rem;
 }
 
 :focus-visible {
@@ -72,6 +72,9 @@ section[id] {
   width: max-content;
 }
 .marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-track:active {
   animation-play-state: paused;
 }
 .marquee {

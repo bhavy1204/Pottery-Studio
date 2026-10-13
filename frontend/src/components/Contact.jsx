@@ -8,6 +8,8 @@ import {
 } from "@phosphor-icons/react";
 import { site, waLink, defaultMessage } from "../data/siteData";
 
+const MAP_SCALE = 1.3; // 1 = normal, 1.5 = much larger map text
+
 function Row({ icon: Icon, label, value, href, external }) {
   return (
     <a
@@ -75,15 +77,33 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="min-h-[360px] overflow-hidden rounded-2xl border border-line bg-sand">
-          <iframe
-            title="Mewar Pot Makers on Google Maps"
-            src={site.mapEmbed}
-            className="h-full min-h-[360px] w-full"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
+        <div>
+          {/* The iframe is rendered smaller then scaled up, so Google's own map text is bigger without cropping anything */}
+          <div className="relative h-[420px] overflow-hidden rounded-2xl border border-line bg-sand md:h-full md:min-h-[420px]">
+            <iframe
+              title="Mewar Pot Makers on Google Maps"
+              src={site.mapEmbed}
+              className="absolute left-0 top-0 border-0"
+              style={{
+                width: `${100 / MAP_SCALE}%`,
+                height: `${100 / MAP_SCALE}%`,
+                transform: `scale(${MAP_SCALE})`,
+                transformOrigin: "top left",
+              }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+          <a
+            href={site.mapLink}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 inline-flex items-center gap-2 font-medium text-terracotta hover:text-terracotta-dark"
+          >
+            <MapPin size={20} />
+            Open in Google Maps
+          </a>
         </div>
       </div>
     </section>

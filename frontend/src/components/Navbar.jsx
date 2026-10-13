@@ -27,9 +27,9 @@ export default function Navbar() {
         scrolled || open ? "bg-cream/95 backdrop-blur border-b border-line" : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+      <nav className="mx-auto flex h-20 max-w-6xl items-center justify-between px-5">
         <a href="#home" className="flex items-center gap-3" aria-label={`${site.name} home`}>
-          <img src={site.logo} alt="" className="h-10 w-10 object-contain" />
+          <img src={site.logo} alt="" className="h-14 w-14 rounded-full object-cover" />
           <span className="font-gloock text-lg leading-none">{site.name}</span>
         </a>
 
