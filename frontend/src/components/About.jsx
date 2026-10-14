@@ -14,9 +14,7 @@ export default function About() {
         <div>
           <h2 className="font-gloock text-4xl leading-tight md:text-5xl">A studio built around clay</h2>
           <p className="mt-6 max-w-lg leading-relaxed text-ink-soft">
-            Placeholder text. Tell the story of the studio here: how it began in Udaipur, what the
-            family loves about the craft, and the kind of work you are known for. Two or three short
-            paragraphs are plenty.
+            At Mewar Pot Maker, we bring people closer to the art of pottery through hands-on experiences and traditional craftsmanship. Based in Kumhar Wara, Udaipur, we aim to make pottery accessible to everyone while sharing our passion for working with clay. Our studio is a place to learn, create, and experience the art of pottery firsthand.
           </p>
           <dl className="mt-10 space-y-6">
             {facts.map((f) => (
