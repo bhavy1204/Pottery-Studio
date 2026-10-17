@@ -98,7 +98,7 @@ export const instructors = [
   {
     name: "Devi Lal Prajapat",
     role: "Master Potter and Founder",
-    image: "https://res.cloudinary.com/g2xlab58/image/upload/v1791736007/7025fa5e-4b93-4919-b17c-a62c26b7452f.png",
+    image: "https://res.cloudinary.com/g2xlab58/image/upload/v1792217539/7025fa5e-4b93-4919-b17c-a62c26b7452f.webp",
     bio: [
       "Khamma Ghani! I am Devilal Prajapat, and I take pride in being connected to the rich craft traditions of Mewar. For me, pottery is an expression of patience, skill, and a deep connection with the earth. Through our journey with Mewar Pot Maker, I hope to keep this traditional art alive and share the beauty of working with clay with future generations.",
     ],
@@ -106,14 +106,14 @@ export const instructors = [
   {
     name: "Lokesh Prajapat",
     role: "Potter and Lead Instructor",
-    image: "https://res.cloudinary.com/g2xlab58/image/upload/v1791736054/6a8793b9-ea45-447d-b86d-6959cf350065-clean.png",
+    image: "https://res.cloudinary.com/g2xlab58/image/upload/v1792217483/6a8793b9-ea45-447d-b86d-6959cf350065-clean.webp",
     bio: [
       "I am Lokesh Prajapat, associated with Mewar Pot Maker in Udaipur, Rajasthan. Through our studio, I aim to share the art of pottery with people of all ages, offering them an opportunity to explore clay, learn pottery techniques, and experience the creative process firsthand. My goal is to make pottery an engaging and accessible experience while celebrating our connection with this traditional craft.",
     ],
   },
 ];
 
-export const galleryCategories = ["All", "Bowls", "Vases", "Mugs", "Studio"];
+export const galleryCategories = ["All", "Workshops & Experiences", "Little Artisans","Pots","Guest Memories"];
 
 export const gallery = ImageGallery
 
